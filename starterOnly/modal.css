@@ -573,3 +573,23 @@ footer {
     background-color: #e54858;
     color: white;
 }
+
+#registrationConfirmed .content {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+#registrationConfirmed .modal-body {
+    min-height: 100%;
+    flex: 1 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+#registrationConfirmed .confirmation-content {
+    flex: 0 0;
+    margin: auto 0;
+    width: 50%;
+    text-align: center;
+}

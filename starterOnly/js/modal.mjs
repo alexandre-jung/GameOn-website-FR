@@ -29,3 +29,14 @@ const closeBtn = modalbg.querySelector('.close');
 closeBtn.addEventListener('click', function() {
     modalbg.style.display = 'none';
 });
+
+const confirmationModal = document.querySelector('#registrationConfirmed');
+const closeConfirmationBtn = confirmationModal.querySelector('input');
+closeConfirmationBtn.addEventListener('click', function() {
+    confirmationModal.style.display = 'none';
+});
+
+form.onSubmitSuccess = function() {
+    modalbg.style.display = 'none';
+    confirmationModal.style.display = 'block';
+}

@@ -83,7 +83,9 @@ class Form extends Mediator {
     handleSubmit = event => {
         event.preventDefault();
         if (this.isValid()) {
-            alert('The form is valid!');
+            if (this.onSubmitSuccess) {
+                this.onSubmitSuccess();
+            }
             this.clearInputs();
         }
     }
