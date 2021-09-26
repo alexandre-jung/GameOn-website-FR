@@ -8,6 +8,8 @@ function editNav() {
     x.className = "topnav";
   }
 }
+// for now make it a global variable
+window.editNav = editNav;
 
 // DOM Elements
 const modalbg = document.querySelector(".bground");
