@@ -218,7 +218,8 @@ input {
   opacity: 0;
   transition: 0.3s;
 }
-.formData[data-error-visible="true"]::after {
+.formData[data-error-visible="true"]::after,
+.formData[data-error].message-only::after {
   opacity: 1;
 }
 .formData[data-error-visible="true"] .text-control {
