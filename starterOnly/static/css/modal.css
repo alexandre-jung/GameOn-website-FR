@@ -16,7 +16,7 @@ body {
   flex-direction: column;
   font-family: var(--font-default);
   font-size: 18px;
-  max-width: 1300px;
+  max-width: 1700px;
   margin: 0 auto;
 }
 
@@ -67,7 +67,7 @@ img {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1150px) {
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
@@ -75,7 +75,7 @@ img {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1150px) {
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
     position: absolute;
@@ -89,14 +89,23 @@ img {
   }
 }
 
-
+@media screen and (max-width: 600px) {
+    .header-logo {
+        height: 30px;
+        margin-top: 15px;
+        margin-left: 10px;
+    }
+    .header-logo img {
+        height: 100%;
+        width: auto;
+    }
+}
 
  @media screen and (max-width: 540px) {
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -15px;
   }
 } 
 
@@ -416,7 +425,6 @@ input[data-error]::after {
   font-size: 15px;
 }
 .hero-section {
-  min-height: 93vh;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -439,7 +447,7 @@ input[data-error]::after {
   height: 100%;
   background: #232323;
   position: absolute;
-  right: -80px;
+  right: 51px;
   top: 0;
 }
 .hero-content > * {
@@ -452,7 +460,6 @@ input[data-error]::after {
   white-space: nowrap;
 }
 .hero-text {
-  width: 146%;
   font-weight: normal;
   margin-top: 57px;
   padding: 0;
@@ -473,6 +480,7 @@ input[data-error]::after {
   height: 100%;
   display: block;
   padding: 0;
+  object-fit: cover;
 }
 .copyrights {
   color: #fe142f;
@@ -489,7 +497,7 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
   .hero-section {
     display: block;
     box-shadow: unset;
@@ -526,6 +534,12 @@ footer {
     margin-top: 50px;
     text-align: center;
   }
+}
+
+@media screen and (max-width: 750px) {
+    .hero-headline {
+        font-size: 3rem;
+    }
 }
 
 @keyframes modalopen {
