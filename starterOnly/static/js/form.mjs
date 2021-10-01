@@ -91,7 +91,12 @@ class Form extends Mediator {
     }
     handleNameChange = ([target, name]) => {
         target.setState();
-        const cleanName = name.trim().replace(/-+/, '-');
+        target.resetMessage();
+        let cleanName = name.trim().replace(/-+/, '-');
+        if (cleanName.match(/[0-9]/)) {
+            target.showMessage('vous ne pouvez pas saisir de chiffre');
+            cleanName = cleanName.replace(/\d/, '');
+        }
         if (cleanName) {
             target.setState(Validator.name(cleanName) ? 'valid' : 'invalid');
         }
@@ -122,7 +127,9 @@ class Form extends Mediator {
         this.data.birthdate = value;
     }
     handleTournamentsChange = ([target, value]) => {
-        const cleanTournaments = parseInt(value);
+        // console.log(value);
+        const cleanTournaments = parseInt(value, 10);
+        console.log(cleanTournaments);
         target.setState(cleanTournaments >= 0 ? 'valid' : 'invalid');
         target.setValue(cleanTournaments);
         this.data.tournaments = cleanTournaments;
