@@ -85,12 +85,16 @@ class NumberInput extends FormData {
     constructor(element) {
         super(element);
         this.input.addEventListener('keydown', this.handleValueChange);
+        this.input.addEventListener('input', this.handleValueChange);
     }
     clear() {
         this.input.value = 0;
         this.setState();
     }
     handleValueChange = ev => {
+        if (ev.type === 'input') {
+            this.notify('change', [this, this.getValue()]);
+        }
         const backspace = ev.key === 'Backspace';
         const enter = ev.key === 'Enter';
         const digit = ev.key >= '0' && ev.key <= '9'
