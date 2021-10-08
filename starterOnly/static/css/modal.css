@@ -174,11 +174,17 @@ main {
   height: 100%;
   width: 100%;
   overflow: auto;
-  background-color: rgba(26, 39, 156, 0.4);
+  background-color: transparent;
+}
+
+@media screen and (min-width: 500px) {
+  .bground {
+    background-color: rgba(26, 39, 156, 0.4);
+  }
 }
 
 .content {
-  margin: 5% auto;
+  margin: 0 auto;
   width: 100%;
   max-width: 500px;
   animation-name: modalopen;
@@ -189,7 +195,14 @@ main {
   position: relative;
   color: #fff;
   padding-top: 10px;
+  /* margin-top: 90px; */
 }
+
+@media screen and (min-width: 500px) {
+  .content {
+    margin: 5% auto;
+  }
+} 
 
 .modal-body {
   padding: 15px 8%;
@@ -315,7 +328,7 @@ input[data-error]::after {
 }
 .close {
   position: absolute;
-  right: 15px;
+  right: 7%;
   top: 15px;
   width: 32px;
   height: 32px;
@@ -590,9 +603,14 @@ footer {
 }
 
 #registrationConfirmed .content {
-    min-height: 80vh;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
+}
+@media screen and (min-width: 500px) {
+    #registrationConfirmed .content {
+        min-height: 80vh;
+    }
 }
 #registrationConfirmed .modal-body {
     min-height: 100%;
