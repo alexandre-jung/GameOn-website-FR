@@ -129,7 +129,7 @@ class Form extends Mediator {
     handleTournamentsChange = ([target, value]) => {
         const cleanTournaments = parseInt(value, 10);
         target.setState(cleanTournaments >= 0 ? 'valid' : 'invalid');
-        target.setValue(cleanTournaments);
+        target.setValue(cleanTournaments > 0 ? cleanTournaments : 0);
         this.data.tournaments = cleanTournaments;
     }
     handleConditionsChange = ([target, value]) => {
