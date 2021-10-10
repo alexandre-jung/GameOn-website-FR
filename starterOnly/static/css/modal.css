@@ -75,6 +75,17 @@ img {
   }
 }
 
+.topnav {
+  overflow: visible;
+  position: relative;
+}
+.topnav .main-navbar {
+  position: absolute;
+  z-index: 9999;
+  right: 0;
+  background: white;
+}
+
 @media screen and (max-width: 1150px) {
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
@@ -86,6 +97,10 @@ img {
     float: none;
     display: block;
     text-align: left;
+  }
+  .topnav.topnav.responsive .main-navbar {
+    box-shadow: 0 0 4px gray;
+    border-radius: 20px;
   }
 }
 
