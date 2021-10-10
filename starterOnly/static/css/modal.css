@@ -260,6 +260,9 @@ input[data-error]::after {
   font-size: 12px;
   font-weight: normal;
 }
+.checkbox2-label {
+    margin-top: 10px;
+}
 .checkbox-label .checkbox-icon,
 .checkbox2-label .checkbox-icon {
   display: block;
