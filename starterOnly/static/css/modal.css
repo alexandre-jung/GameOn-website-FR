@@ -536,7 +536,9 @@ footer {
   .hero-content {
     background: #fff;
     color: #000;
-    padding: 20px;
+    padding: 20px 0 0;
+    min-width: auto;
+    text-align: center;
   }
   .hero-content::after {
     content: unset;
