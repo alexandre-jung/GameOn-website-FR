@@ -1,3 +1,9 @@
+/**
+ * validator.mjs
+ * 
+ * basic validation for inputs.
+ */
+
 const nameRegex = /^[a-zA-Z]{2,}(?:-[a-zA-Z]{2,})?$/;
 const emailRegex = /^[a-z0-9]+([+._-][a-z0-9]+)*@[a-z0-9]+(-[a-z]+)*(\.[a-z]{2,})+$/;
 

@@ -1,14 +1,30 @@
+/**
+ * form.mjs
+ * 
+ * the registration form.
+ */
+
 import Mediator from "./mediator.mjs";
 import { FormData, Checkbox, NumberInput } from './formData.mjs';
 import Validator from './validator.mjs';
 
+/**
+ * class Form - the registration form.
+ * handles the logic and validate fields on the fly.
+ */
 class Form extends Mediator {
+    /**
+     * constructor
+     */
     constructor() {
         super();
         this.setupComponents();
         this.setupEvents();
         this.initData();
     }
+    /**
+     * create and add fields
+     */
     setupComponents() {
         this.form = document.querySelector('form');
         this.firstData = this.add(new FormData(document.querySelectorAll('.formData')[0]));
@@ -18,6 +34,9 @@ class Form extends Mediator {
         this.tournamentsData = this.add(new NumberInput(document.querySelectorAll('.formData')[4]));
         this.conditionsData = this.add(new Checkbox(document.querySelectorAll('.formData')[6]));
     }
+    /**
+     * setup custom event handlers
+     */
     setupEvents() {
         this.form.addEventListener('submit', this.handleSubmit);
         this.addEventHandler(this.firstData, 'change', this.handleNameChange);
@@ -27,6 +46,9 @@ class Form extends Mediator {
         this.addEventHandler(this.tournamentsData, 'change', this.handleTournamentsChange);
         this.addEventHandler(this.conditionsData, 'change', this.handleConditionsChange);
     }
+    /**
+     * initialize fields data
+     */
     initData() {
         this.clearInputs();
         this.data = {
@@ -38,6 +60,10 @@ class Form extends Mediator {
             conditionsAccepted: this.conditionsData.getValue(),
         };
     }
+    /**
+     * validate fields data
+     * @return `true` if the form is valid, else `false`
+     */
     isValid() {
         const firstIsValid = Validator.name(this.data.first);
         const lastIsValid = Validator.name(this.data.last);
@@ -73,13 +99,17 @@ class Form extends Mediator {
             tournamentsIsValid &&
             conditionsAccepted;
     }
-    animate() {
-    }
+    /**
+     * clear all fields
+     */
     clearInputs() {
         this.components.map(component => {
             component.clear();
         });
     }
+    /**
+     * handle submit event
+     */
     handleSubmit = event => {
         event.preventDefault();
         if (this.isValid()) {
@@ -89,6 +119,11 @@ class Form extends Mediator {
             this.clearInputs();
         }
     }
+
+    /************************************************
+     * callbacks for fields changes
+     ***********************************************/
+
     handleNameChange = ([target, name]) => {
         target.setState();
         target.resetMessage();

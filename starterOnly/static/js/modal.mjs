@@ -1,5 +1,8 @@
 import Form from './form.mjs';
 
+// when clicking the navbar stop propagation to no let the event
+// hit the document. this prevents navbar from immediately closing
+// when we want to open it.
 const mainNavbar = document.querySelector(".main-navbar");
 mainNavbar.addEventListener("click", function(ev) {
     ev.stopPropagation();
@@ -40,12 +43,14 @@ closeBtn.addEventListener('click', function() {
     modalbg.style.display = 'none';
 });
 
+// dismiss confirmation modal
 const confirmationModal = document.querySelector('#registrationConfirmed');
 const closeConfirmationBtn = confirmationModal.querySelector('input');
 closeConfirmationBtn.addEventListener('click', function() {
     confirmationModal.style.display = 'none';
 });
 
+// display confirmation on submit success
 form.onSubmitSuccess = function() {
     modalbg.style.display = 'none';
     confirmationModal.style.display = 'block';
