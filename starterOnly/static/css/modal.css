@@ -36,9 +36,6 @@ img {
 .header-logo {
     float: left;
 }
-.main-navbar {
-    float: right;
-}
 .topnav a {
   float: left;
   display: block;
@@ -80,8 +77,9 @@ img {
   position: relative;
 }
 .topnav .main-navbar {
+float: right;
   position: absolute;
-  z-index: 9999;
+  z-index: 100;
   right: 0;
   background: white;
 }
@@ -183,7 +181,7 @@ main {
 .bground {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 200;
   left: 0;
   top: 0;
   height: 100%;
@@ -210,7 +208,6 @@ main {
   position: relative;
   color: #fff;
   padding-top: 10px;
-  /* margin-top: 90px; */
 }
 
 @media screen and (min-width: 500px) {
@@ -244,7 +241,7 @@ input {
   font-size: 20px;
   height: 48px;
 }
-.formData[data-error]::after {
+[data-error]::after {
   content: attr(data-error);
   font-size: 0.4em;
   color: #e54858;
@@ -255,11 +252,11 @@ input {
   opacity: 0;
   transition: 0.3s;
 }
-.formData[data-error-visible="true"]::after,
-.formData[data-error].message-only::after {
+[data-error-visible="true"]::after,
+[data-error].message-only::after {
   opacity: 1;
 }
-.formData[data-error-visible="true"] .text-control {
+[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
 /* 
@@ -592,18 +589,17 @@ footer {
 .formData:not([data-error-visible]) input {
     border: 2px solid #13d198;
 }
-.formData[data-error-visible="true"] input,
-.formData[data-error-visible="true"] [for='checkbox1'] .checkbox-icon {
+[data-error-visible="true"] input,
+[data-error-visible="true"] [for='checkbox1'] .checkbox-icon {
     border: 2px solid #e54858;
 }
-.formData[data-error-visible="true"] [for='checkbox1'] {
+[data-error-visible="true"] [for='checkbox1'] {
     transition: color 0.3s;
 }
-.formData[data-error-visible="true"] [for='checkbox1'] {
+[data-error-visible="true"] [for='checkbox1'] {
     font-weight: 700;
     color: #e54858;
 }
-
 
 @keyframes sayNo {
     from {
@@ -617,9 +613,11 @@ footer {
 [data-error-visible="true"].say-no input {
     animation: sayNo 0.1s ease-in-out 2;
 }
-[data-error-visible="true"] .red {
+[data-error-visible="true"] .red,
+[data-error-visible="true"] .red::placeholder {
     background-color: #e54858;
-    color: white;
+    color: rgba(255, 255, 255, 0.5);
+    opacity: 1;
 }
 
 #registrationConfirmed .content {
